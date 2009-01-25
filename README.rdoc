@@ -1,0 +1,32 @@
+= About
+Publishes your tweet with a link to the content that didn't fit.
+
+Let's say you have a blog post and you just want to post the beginning of it to Twitter with a link to the whole thing. You can feed the tweet method of this library with the post content and the link to it. TweetOverflow posts to Twitter as much as it can from the post and appends a shortened URL to the full content to the end of the tweet. The URL is prefixed with a space unless you specify a different string. The methods returns the number of characters of the post that made it into the tweet.
+
+= Installation
+  sudo gem install jankubr-tweet_overflow
+
+= Usage
+  require 'tweet_overflow'
+
+    TweetOverflow.tweet("I just published a new gem. It has one method that publishes as much as it can from the string you call it with and appends a short url at the end that points to the whole content.", 'http://blog.com/published-new-gem', TWITTER_USERNAME, TWITTER_PASSWORD)
+
+Publishes "I just published a new gem. It has one method that publishes as much as it can from the string you call it with and appe http://cli.gs/12345" where the URL points to http://blog.com/published-new-gem. The method returns 120.
+
+    TweetOverflow.tweet("I just puslished a new gem. It has one method that publishes as much as it can from the string you call it with and appends a short url at the end that points to the whole content.", 'http://blog.com/published-new-gem', TWITTER_USERNAME, TWITTER_PASSWORD, "... Read more here: ")
+
+Publishes "I just published a new gem. It has one method that publishes as much as it can from the string you cal... Read more here: http://cli.gs/12345" where the URL points to http://blog.com/published-new-gem. The method returns 101.
+
+
+  TweetOverflow.tweet("I had eggs for breakfast", nil, TWITTER_USERNAME, TWITTER_PASSWORD)
+Publishes the whole tweet with no link and returns 24.
+
+= License
+Copyright © 2009 Jan Kubr
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
